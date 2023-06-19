@@ -60,13 +60,10 @@ const QuizGame = () => {
     const handleDrop = (e, index) => {
         const jsonData = e.dataTransfer.getData('application/json');
         const droppedOption = JSON.parse(jsonData);
-        console.log(droppedOption)
         const newOptions = options.filter((option) => {
-            console.log(option, droppedOption);
             return (Object.keys(option)[0] !== Object.keys(droppedOption)[0]);
 
         });
-        console.log(newOptions)
 
         if (bucket[index]) {
             newOptions.push(bucket[index]);
@@ -111,7 +108,6 @@ const QuizGame = () => {
                 </div>
                 <div className="options-container">
                     {options.map((option, index) => {
-                        console.log(option)
                         let propValue;
                         for (var propName in option) {
                             if (option.hasOwnProperty(propName)) {
